@@ -3,8 +3,8 @@ import ExpenseItem from "./ExpenseItem";
 import { AppContext } from "./context/AppContext";
 
 const ExpensesList = () => {
-  const { expenses } = useContext(AppContext);
   const [search, setSearch] = useState("");
+  const { expenses } = useContext(AppContext);
 
   const filteredExpense = expenses.filter((expense) => {
     return expense.name.toLowerCase().includes(search.toLowerCase());
@@ -12,17 +12,17 @@ const ExpensesList = () => {
 
   return (
     <>
-       <div className="row ">
+      <div className="row ">
         <div className="col-sm my-3">
-        <input
-          type="text"
-          placeholder="Type to search..."
-          className="form-control w-50"
-          onChange={(e) => setSearch(e.target.value)}
-          id="search"
-          value={search}
-        />
-      </div>
+          <input
+            type="text"
+            placeholder="Search..."
+            className="form-control w-50"
+            onChange={(e) => setSearch(e.target.value)}
+            id="search"
+            value={search}
+          />
+        </div>
       </div>
 
       <ul className="list-group">
